@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Literatus + Saúde - Cadastro de Usuário</title>
+  <link rel="stylesheet" href="css/stylecadastro.css">
+</head>
+
+<body>
+  <div class="wrapper">
+    <header>
+      <div class="logo">
+        <a href="index.html"><img src="img/Solzinho.png" alt="Logo Literatus + Saúde"></a>
+        <h1>Literatus + Saúde</h1>
+      </div>
+    </header>
+
+    <main>
+      <!-- Formulário de cadastro de usuário -->
+      <div class="user-registration-form">
+        <h3>Preencha seus dados:</h3>
+        <form id="registrationForm" method="post" action="php/registro_dados.php">
+          <div class="form-group">
+            <label for="nomeCompleto">Nome Completo:</label>
+            <input type="text" id="nomeCompleto" name="nomeCompleto" placeholder="Seu nome completo" required>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Seu email" required>
+          </div>
+
+          <div class="form-group">
+            <label for="dataNascimento">Data de Nascimento:</label>
+            <input type="date" id="dataNascimento" name="dataNascimento" required>
+          </div>
+
+          <div class="form-group">
+            <label for="telefone">Telefone:</label>
+            <input type="tel" id="telefone" name="telefone" placeholder="Seu telefone" required>
+          </div>
+
+          <div class="form-group">
+            <label>Escolha os serviços:</label>
+            <div class="checkbox-group">
+              <input type="checkbox" id="servico1" name="servicos" value="Massoterapia">
+              <label class="checkbox" for="servico1"></label>
+              <span>Massoterapia</span>
+            </div>
+            <div class="checkbox-group">
+              <input type="checkbox" id="servico2" name="servicos" value="Acupuntura">
+              <label class="checkbox" for="servico2"></label>
+              <span>Acupuntura</span>
+            </div>
+            <!-- Adicione os demais serviços com ids únicos aqui -->
+          </div>
+
+          <button type="button" onclick="registrarDados()">Registrar meus dados</button>
+        </form>
+      </div>
+
+      <!-- Exibição dos dados cadastrados e serviços escolhidos -->
+      <div class="exibicao-dados" id="exibicaoDados" style="display: none;">
+        <h3>Seus Dados:</h3>
+        <p><strong>Nome Completo:</strong> <span id="dadosNomeCompleto"></span></p>
+        <p><strong>Email:</strong> <span id="dadosEmail"></span></p>
+        <p><strong>Data de Nascimento:</strong> <span id="dadosDataNascimento"></span></p>
+        <p><strong>Telefone:</strong> <span id="dadosTelefone"></span></p>
+        <p><strong>Serviços Escolhidos:</strong></p>
+        <ul id="dadosServicos"></ul>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/cadastro.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perfil do Atendente - Literatus + Saúde</title>
+  <link rel="stylesheet" href="css/styleperfil.css">
+</head>
+
+<body>
+  <div class="wrapper">
+    <header>
+      <div class="logo">
+        <a href="index.html"><img src="img/Solzinho.png" alt="Logo Literatus + Saúde"></a>
+        <h1>Literatus + Saúde</h1>
+      </div>
+    </header>
+
+    <main>
+      <h1>Perfil do Atendente</h1>
+
+      <!-- PHP para exibir os dados do atendente -->
+      <?php
+      // Verificar se o atendente está logado (você pode implementar a lógica de autenticação aqui)
+      $atendenteLogado = true; // Altere para false se o atendente não estiver logado
+      
+      if ($atendenteLogado) {
+        // Dados do atendente (substitua pelos dados do atendente logado)
+        $nomeAtendente = "Nome do Atendente";
+        $emailAtendente = "atendente@exemplo.com";
+        $telefoneAtendente = "(00) 1234-5678";
+      ?>
+        <p><strong>Nome:</strong> <?php echo $nomeAtendente; ?></p>
+        <p><strong>Email:</strong> <?php echo $emailAtendente; ?></p>
+        <p><strong>Telefone:</strong> <?php echo $telefoneAtendente; ?></p>
+
+        <!-- Coloque outros dados do atendente aqui, se necessário -->
+      <?php } else { ?>
+        <p>Você precisa fazer login para visualizar o perfil do atendente.</p>
+      <?php } ?>
+    </main>
+
+    <footer>
+      <div class="social-icons">
+        <!-- Coloque os ícones de redes sociais aqui -->
+      </div>
+      <p class="rights-reserved">© Centro de Ensino Literatus - Todos os direitos reservados</p>
+    </footer>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,94 @@
+<?php
+session_start();
+
+// Verifica se o atendente está logado
+if (!isset($_SESSION['atendente_id'])) {
+    header("Location: login_atendente.php"); // Redireciona para a página de login do atendente
+    exit();
+}
+
+// Dados do banco de dados
+$servername = "localhost";
+$username = "seu_usuario";
+$password = "sua_senha";
+$dbname = "seu_banco_de_dados";
+
+// Criar a conexão
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Verificar a conexão
+if ($conn->connect_error) {
+    die("Conexão falhou: " . $conn->connect_error);
+}
+
+// Obtém o ID do atendente logado da sessão
+$atendente_id = $_SESSION['atendente_id'];
+
+// Consulta para obter a fila de atendimento para o atendente logado
+$sql = "SELECT id_cliente, nome, codigo_atendimento FROM fila_atendimento WHERE id_atendente = $atendente_id AND atendimento_concluido = 0";
+$result = $conn->query($sql);
+
+?>
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel de Atendimento - Literatus + Saúde</title>
+    <link rel="stylesheet" href="css/paine_atendimento_atendente.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+            <div class="logo">
+                <a href="index.html"><img src="img/Solzinho.png" alt="Logo Literatus + Saúde"></a>
+                <h1>Literatus + Saúde</h1>
+            </div>
+        </header>
+
+       <!-- Restante do código PHP -->
+
+<main>
+    <h1>Painel de Atendimento</h1>
+
+    <!-- Exibe a tabela de atendimento para o cliente -->
+    <?php if ($result->num_rows > 0) : ?>
+        <table>
+            <tr>
+                <th>Código de Atendimento</th>
+                <th>Nome do Cliente</th>
+            </tr>
+            <?php while ($row = $result->fetch_assoc()) : ?>
+                <tr>
+                    <td class="codigo-atendimento"><?php echo $row["codigo_atendimento"]; ?></td>
+                    <td class="nome-cliente"><?php echo $row["nome"]; ?></td>
+                </tr>
+            <?php endwhile; ?>
+        </table>
+    <?php else : ?>
+        <p>Nenhum cliente na fila de atendimento.</p>
+    <?php endif; ?>
+
+</main>
+
+<!-- Restante do código HTML -->
+
+
+        <footer>
+            <div class="social-icons">
+                <!-- Coloque os ícones de redes sociais aqui -->
+            </div>
+            <p class="rights-reserved">© Centro de Ensino Literatus - Todos os direitos reservados</p>
+        </footer>
+    </div>
+</body>
+
+</html>
+
+<?php
+// Fecha a conexão com o banco de dados
+$conn->close();
+?>

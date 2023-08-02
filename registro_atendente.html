@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro de Atendente - Literatus + Saúde</title>
+  <link rel="stylesheet" href="css/style_registro_atendente.css">
+</head>
+
+<body>
+  <div class="wrapper">
+    <header>
+      <div class="logo">
+        <a href="index.html"><img src="img/Solzinho.png" alt="Logo Literatus + Saúde"></a>
+        <h1>Literatus + Saúde</h1>
+      </div>
+    </header>
+
+    <main>
+      <h1>Registro de Atendente</h1>
+
+      <!-- Formulário de registro de atendente -->
+      <div class="atendente-registration-form">
+        <form id="registrationForm" action="php/registrar_atendente.php" method="post">
+          <div class="form-group">
+            <label for="nomeCompleto">Nome Completo:</label>
+            <input type="text" id="nomeCompleto" name="nome" placeholder="Seu nome completo" required>
+          </div>
+
+          <div class="form-group">
+            <label for="usuario">Usuário:</label>
+            <input type="text" id="usuario" name="usuario" placeholder="Nome de usuário" required>
+          </div>
+
+          <div class="form-group">
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Seu email" required>
+          </div>
+
+          <div class="form-group">
+            <label for="telefone">Telefone:</label>
+            <input type="tel" id="telefone" name="telefone" placeholder="Seu telefone" required>
+          </div>
+
+          <button type="submit">Registrar Atendente</button>
+        </form>
+      </div>
+    </main>
+
+    <footer>
+      <div class="social-icons">
+        <!-- Coloque os ícones de redes sociais aqui -->
+      </div>
+      <p class="rights-reserved">© Centro de Ensino Literatus - Todos os direitos reservados</p>
+    </footer>
+  </div>
+</body>
+
+</html>
